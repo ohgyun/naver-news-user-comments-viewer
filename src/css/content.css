@@ -1,0 +1,34 @@
+@charset "utf-8";
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.commentlist_wrap .author .list-viewer {
+  position: relative;
+  margin-left: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #E74C3C;
+  font-size: 14px;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  font-family: 'Flat-UI-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+}
+.commentlist_wrap .author .list-viewer:hover::after {
+  margin-left: 5px;
+  position: relative;
+  top: -1px;
+  content: '\e02c 작성자의 다른 댓글 보기';
+  font-size: 11px;
+}

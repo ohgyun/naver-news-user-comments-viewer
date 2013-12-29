@@ -1,0 +1,6 @@
+release/
+src/js/
+src/css/
+build/
+node_modules/
+*.zip

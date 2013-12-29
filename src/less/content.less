@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.icon-font() {
+  // Flat UI의 아이콘을 사용한다.
+  // @see /cscript/viwer/webFont.js
+  // @see https://github.com/designmodo/Flat-UI/blob/master/less/icon-font.less
+  font-family: 'Flat-UI-Icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  text-decoration: none;
+}
+
+@-webkit-keyframes fadeIn { 
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.commentlist_wrap .author .__list-viewer {
+  position: relative;
+  margin-left: 5px;
+  display: inline-block;
+  cursor: pointer;
+  color: #E74C3C;
+  font-size: 14px;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  .icon-font();
+  
+  &:hover::after {
+    margin-left: 5px;
+    position: relative;
+    top: -1px;
+    content: '\e02c 작성자의 다른 댓글 보기';
+    font-size: 11px;
+  }
+}
