@@ -7,12 +7,12 @@
     opacity: 1;
   }
 }
-.commentlist_wrap .author .list-viewer {
+.commentlist_wrap .author .__list-viewer {
   position: relative;
   margin-left: 5px;
   display: inline-block;
   cursor: pointer;
-  color: #E74C3C;
+  color: #e74c3c;
   font-size: 14px;
   -webkit-animation-name: fadeIn;
   -webkit-animation-duration: 1s;
@@ -25,10 +25,89 @@
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
 }
-.commentlist_wrap .author .list-viewer:hover::after {
+.commentlist_wrap .author .__list-viewer:hover::after {
   margin-left: 5px;
   position: relative;
   top: -1px;
   content: '\e02c 작성자의 다른 댓글 보기';
   font-size: 11px;
+}
+#__list-viewer-overlay {
+  position: fixed;
+  z-index: 90000;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+  opacity: 0;
+}
+#__list-viewer-modal {
+  position: fixed;
+  left: 150px;
+  width: 350px;
+  padding: 15px;
+  max-height: 400px;
+  background: green;
+  display: none;
+  background: #FFFFFF;
+  color: #2C3E50;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  z-index: 90001;
+  word-wrap: break-word;
+}
+#__list-viewer-modal ul li {
+  margin: 10px 10px;
+  list-style: none;
+  border-bottom: 1px solid #ECF0F1;
+}
+#__list-viewer-modal ul li strong {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #7F8C8D;
+}
+#__list-viewer-modal ul li strong .date {
+  font-size: 16px;
+}
+#__list-viewer-modal ul li strong .ampm,
+#__list-viewer-modal ul li strong .time {
+  font-weight: normal;
+  font-size: 12px;
+}
+#__list-viewer-modal ul li .content {
+  margin: 8px 0;
+}
+#__list-viewer-modal ul li .article {
+  display: inline-block;
+  margin: 0 0 10px 15px;
+  color: #7F8C8D;
+  font-size: 10px;
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  white-space: nowrap;
+}
+#__list-viewer-modal ul li:first-child {
+  magin-top: 0;
+}
+#__list-viewer-modal ul li:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+#__list-viewer-modal ul li.more button {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: #fff;
+  background: #d35400;
+  transition: background 0.25s linear;
+  outline: none;
+}
+#__list-viewer-modal ul li.more button:hover {
+  background: #ff6a07;
 }

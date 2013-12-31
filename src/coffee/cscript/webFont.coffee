@@ -14,25 +14,6 @@ define ->
   insertRule = (def) ->
     _style.sheet.insertRule def, 0
 
-  # Lato Normal
-  insertRule """
-    @font-face {
-      font-family: "Lato";
-      src: url(#{chrome.extension.getURL("font/lato-regular-webfont.woff")}) format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
-  """
-  # Lato Bold
-  insertRule """
-    @font-face {
-      font-family: "Lato";
-      src: url(#{chrome.extension.getURL("font/lato-bold-webfont.woff")}) format("woff");
-      font-weight: bold;
-      font-style: normal;
-    }
-  """
-  
   # Flat UI Icons
   insertRule """
     @font-face {

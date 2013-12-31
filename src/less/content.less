@@ -1,5 +1,8 @@
 @charset "utf-8";
 
+@overlay-z-index: 90000;
+@button-color: #E74C3C;
+
 .icon-font() {
   // Flat UI의 아이콘을 사용한다.
   // @see /cscript/viwer/webFont.js
@@ -24,7 +27,7 @@
   margin-left: 5px;
   display: inline-block;
   cursor: pointer;
-  color: #E74C3C;
+  color: @button-color;
   font-size: 14px;
   -webkit-animation-name: fadeIn;
   -webkit-animation-duration: 1s;
@@ -36,5 +39,101 @@
     top: -1px;
     content: '\e02c 작성자의 다른 댓글 보기';
     font-size: 11px;
+  }
+}
+
+#__list-viewer-overlay {
+  position: fixed;
+  z-index: @overlay-z-index;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background: #000;
+  display: none;
+  opacity: 0;
+}
+
+#__list-viewer-modal {
+  position: fixed;
+  left: 150px;
+  width: 350px;
+  padding: 15px;
+  max-height: 400px;
+  background: green;
+  display: none;
+  background: #FFFFFF;
+  color: #2C3E50;
+  box-shadow: 0 0 7px rgba(0,0,0,0.4);
+  overflow-y: auto;
+  z-index: @overlay-z-index + 1;
+  word-wrap: break-word;
+
+  ul {
+    li {
+      margin: 10px 10px;
+      list-style: none;
+      border-bottom: 1px solid #ECF0F1;
+
+      strong {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #7F8C8D;
+
+        .date {
+          font-size: 16px;
+        }
+
+        .ampm, .time {
+          font-weight: normal;
+          font-size: 12px;
+        }
+      }
+
+      .content {
+        margin: 8px 0;
+      }
+
+      .article {
+        display: inline-block;
+        margin: 0 0 10px 15px; 
+        color: #7F8C8D;
+        font-size: 10px;
+        width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      &:first-child {
+        magin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+
+      // 더보기 버튼
+      &.more {
+        button {
+          @button-color: #D35400;
+          display: block;
+          width: 100%;
+          padding: 10px 20px;
+          border-radius: 6px;
+          color: #fff;
+          background: @button-color;
+          transition: background 0.25s linear;
+          outline: none;
+
+          &:hover {
+            background: lighten(@button-color, 10%);
+          }
+        }
+      }
+    }
   }
 }

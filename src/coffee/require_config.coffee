@@ -5,6 +5,9 @@ requirejs.config
     common: "../js/common"
     bg: "../js/bg"
     cscript: "../js/cscript"
+    tmpl: "../js/tmpl"
   shim:
     underscore:
       exports: "_"
+    handlebars:
+      exports: "Handlebars"

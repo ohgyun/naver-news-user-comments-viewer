@@ -7,7 +7,7 @@ module.exports = (grunt) ->
     manifest: grunt.file.readJSON "src/manifest.json"
 
     clean:
-      build: ["build", "src/js", "src/css", "release"]
+      build: ["build", "src/js", "src/css", "src/tmpl", "release"]
 
     # 커피스크립트를 `src/js`로 컴파일한다.
     coffee:
@@ -18,6 +18,18 @@ module.exports = (grunt) ->
             src: ["**/*.coffee"]
             dest: "src/js"
             ext: ".js"
+        ]
+
+    handlebars:
+      develop:
+        options:
+          amd: true
+          namespace: "tmpl"
+          processName: (filepath) ->
+            rName = /\/(\w+).hbs/
+            RegExp.$1 if rName.test(filepath)
+        files: [
+          "src/js/tmpl/tmpl.js": ["src/hbs/*"]
         ]
 
     less:
@@ -117,12 +129,14 @@ module.exports = (grunt) ->
     "grunt-contrib-less"
     "grunt-contrib-compress"
     "grunt-contrib-coffee"
+    "grunt-contrib-handlebars"
   ]
 
 
   # 태스크 등록
   grunt.registerTask "default", [
     "coffee"
+    "handlebars"
     "less"
   ]
   
