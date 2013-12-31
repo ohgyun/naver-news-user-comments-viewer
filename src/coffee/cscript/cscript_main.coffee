@@ -3,7 +3,6 @@ gIsContentScript = true
 
 ###
 컨텐트 스크립트의 메인 모듈
-이 스크립트는 iframe을 포함한 모든 프레임에 추가된다.
 ###
 require [
   "jquery"

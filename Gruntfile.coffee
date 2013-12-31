@@ -74,9 +74,7 @@ module.exports = (grunt) ->
 
       cscript:
         options:
-          # 컨텐트 스크립트의 뷰어는 비동기로 로드되기 때문에 의존 목록에 포함되지 않는다.
-          # 명시적으로 include에 추가한다.
-          include: ["requireLib", "cscript/viewer/viewer"]
+          include: ["requireLib"]
           name: "cscript/cscript_main"
           out: "build/js/cscript.min.js"
 
