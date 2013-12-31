@@ -62,6 +62,7 @@ require [
     viewer.loading(top)
 
   viewer.modal.on "click", ".more button", (e) ->
+    $(e.target).html "불러오는 중..."
     pubsub.pub "@-more-button-clicked",
       currentPage: $(this).data("current-page")
 

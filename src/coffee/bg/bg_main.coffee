@@ -4,13 +4,16 @@
 require [
   "jquery"
   "common/pubsub"
-], ($, pubsub) ->
+  "bg/ga"
+], ($, pubsub, ga) ->
 
   _lastParam = null
 
   # 사용자 댓글을 요청한다.
   # 모바일 뉴스의 API를 사용해 요청한다.
   requestComments = (data) ->
+    ga.push "_trackEvent", "comments request", "new"
+
     param = _lastParam =
       gno: data.gno
       sort: "newest"
@@ -46,6 +49,8 @@ require [
 
   # 마지막으로 보낸 파라미터로 다음 페이지를 요청한다.
   requestNextPageComments = (currentPage) ->
+    ga.push "_trackEvent", "comments request", "more"
+
     data = _lastParam
     data.page = currentPage + 1
     
