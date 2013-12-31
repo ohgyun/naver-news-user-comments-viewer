@@ -12,7 +12,7 @@ $ git clone git@github.com:ohgyun/naver-news-user-comments-viewer.git
 
 `npm`으로 의존 모듈을 설치합니다.  
 ````
-$ cd nendic-ext
+$ cd naver-news-user-comments-viewer
 $ npm install
 ````
   
